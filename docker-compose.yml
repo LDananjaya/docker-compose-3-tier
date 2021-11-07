@@ -1,28 +1,28 @@
 version: '2'
 services:
   fe:
-    image: kammana/emp-fe-comp:1.0
+    image: docker-client
     container_name: emp-fe
     ports:
      - "4200:4200"
     networks:
-      - javahome-app
+      - docker-assaingment
   mongodb:
     container_name: mongodb
     image: "mongo:latest"
     networks:
-      - javahome-app
+      - docker-assaingment
     volumes:
       - mongodb:/data/db
   emp-api:
     container_name: empapi
-    image: kammana/boot-api:5.0
+    image: docker-client-api
     ports:
      - "8080:8080"
     networks:
-      - javahome-app
+      - docker-assaingment
 volumes:
   mongodb:
 networks:
-  javahome-app:
+  docker-assaingment:
     driver: bridge
